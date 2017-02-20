@@ -32,19 +32,46 @@ class DetailViewController: UIViewController {
         
         let overview = movie["overview"]
         overviewLabel.text = overview as? String
-        
         overviewLabel.sizeToFit()
         
+        fadingImage()   // Loading in an image from the network
+        
+        print(movie)    // Standard outputting details
+    }
+    
+    
+    func fadingImage() -> Void {
         if let posterPath = movie["poster_path"] as? String {
             
-            let baseURL = "https://image.tmdb.org/t/p/w500"
-            let imageURL = URL(string: baseURL + posterPath)
+            // Setting poster view with high resoluton
+            let smallImageRequest = URLRequest(url: (NSURL(string: "https://image.tmdb.org/t/p/w45" + posterPath)) as! URL)
+            let largeImageRequest = URLRequest(url: (NSURL(string: "https://image.tmdb.org/t/p/original" + posterPath)) as! URL)
             
-            posterView.setImageWith(imageURL!);
+            
+            posterView.setImageWith(smallImageRequest, placeholderImage: nil, success: {(smallImageRequest, smallImageResponse, smallImage) -> Void in
+                
+                self.posterView.alpha = 0.0
+                self.posterView.image = smallImage
+                
+                UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                    
+                    self.posterView.alpha = 1.0
+                    
+                }, completion: { (sucess) -> Void in
+                    
+                    self.posterView.setImageWith(largeImageRequest as URLRequest, placeholderImage: smallImage, success: {
+                        (largeImageRequest, LargeImageResponse, largeImage) ->Void in
+                            self.posterView.image = largeImage;
+                    },failure: {(request, response, error) -> Void in
+                    })
+                })
+            },
+            failure: { (imageRequest, imageResponse, error) -> Void in
+                print("Failed")
+            })
         }
-        
-        print(movie)
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

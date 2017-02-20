@@ -35,28 +35,7 @@ class FlickViewController: UIViewController, UITableViewDataSource, UITableViewD
         // add refresh control to table view
         tableView.insertSubview(refreshControl, at: 0)
         
-        
-        // Do any additional setup after loading the view.
-        
-        let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = URL(string: "https://api.themoviedb.org/3/movie/\(endPoint!)?api_key=\(apiKey)")!
-        
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            if let data = data {
-                if let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
-                    print(dataDictionary)
-                    
-                    MBProgressHUD.hide(for: self.view, animated: true)
-                    
-                    self.movies = dataDictionary["results"] as? [NSDictionary]
-                    self.tableView.reloadData();
-                }
-            }
-        }
-        task.resume()
+        retrieveData()  // Retrieve data from API
     }
     
     
@@ -99,19 +78,53 @@ class FlickViewController: UIViewController, UITableViewDataSource, UITableViewD
     // Hides the RefreshControl
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
         
-        // ... Create the URLRequest `myRequest` ...
+        retrieveData()
+        // Reload the tableView now that there is new data
+            self.tableView.reloadData()
+            
+        // Tell the refreshControl to stop spinning
+            refreshControl.endRefreshing()
+    }
+    
+    
+    // Search Bar setting
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // When user has entered text into the search box
+        // Use the filter method to iterate over all items in the data array
+        retrieveData()
+        movies = searchText.isEmpty ? movies : movies!.filter { (item: NSDictionary) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            return "\(item)".range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        tableView.reloadData()
+    }
+    
+    
+    /*
+    // make cancel button visible
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
+    // reset text equal to empty
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }*/
+    
+    
+    // get data from API
+    func retrieveData() -> Void {
+        // Do any additional setup after loading the view.
+        
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = URL(string: "https://api.themoviedb.org/3/movie/\(endPoint!)?api_key=\(apiKey)")!
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        
-        
-        // Configure session so that completion handler is executed on main UI thread
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task: URLSessionDataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-            
-            // ... Use the new data to update the data source ...
             if let data = data {
                 if let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
                     print(dataDictionary)
@@ -122,15 +135,10 @@ class FlickViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.tableView.reloadData();
                 }
             }
-            
-            // Reload the tableView now that there is new data
-            self.tableView.reloadData()
-            
-            // Tell the refreshControl to stop spinning
-            refreshControl.endRefreshing()
         }
         task.resume()
     }
+    
     
     // MARK: - Navigation
     

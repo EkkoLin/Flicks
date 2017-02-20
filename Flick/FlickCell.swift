@@ -17,6 +17,8 @@ class FlickCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        posterView.layer.cornerRadius = 20
+        posterView.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

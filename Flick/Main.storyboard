@@ -12,7 +12,6 @@
         <!--Movie Viewer-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="FlickViewController" customModule="Flick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -27,11 +26,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Acj-HD-stE" id="8kC-fg-Ijb">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="188"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="188.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" id="RWe-q5-7EX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="370" height="188"/>
+                                                <view contentMode="scaleToFill" misplaced="YES" id="RWe-q5-7EX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="377" height="188"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="S5b-Fe-wFa">
@@ -53,7 +52,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -74,13 +73,13 @@
                         <outlet property="tableView" destination="6av-lJ-CUX" id="IFg-GB-c7G"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="672.5" y="152.5"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="iwZ-fc-vjw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xxd-Io-haw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="63B-RB-l2b" customClass="DetailViewController" customModule="Flick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FZI-OF-noR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -129,24 +128,29 @@
                         <outlet property="titleLabel" destination="aEZ-T4-hCj" id="Ud3-bN-Apd"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xxd-Io-haw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1178.5" y="150.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5cK-u7-Rjc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkU-RP-t5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="FlicksNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="CrR-sf-WyL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iCo-tG-8P4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="iCo-tG-8P4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                            <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="auV-Kt-r3p"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkU-RP-t5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="159.375" y="152.29833333333332"/>
         </scene>
