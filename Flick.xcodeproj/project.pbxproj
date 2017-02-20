@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		89B2C2121E5AA20C0026376A /* FlickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B2C2111E5AA20C0026376A /* FlickViewController.swift */; };
+		89B2C2181E5AAE9A0026376A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89B2C2171E5AAE9A0026376A /* Main.storyboard */; };
 		89F9DCE91E5A9A2700493511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9DCE81E5A9A2700493511 /* AppDelegate.swift */; };
-		89F9DCEE1E5A9A2700493511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F9DCEC1E5A9A2700493511 /* Main.storyboard */; };
 		89F9DCF01E5A9A2700493511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89F9DCEF1E5A9A2700493511 /* Assets.xcassets */; };
 		89F9DCF31E5A9A2700493511 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89F9DCF11E5A9A2700493511 /* LaunchScreen.storyboard */; };
-		89F9DCFC1E5A9C7000493511 /* READ.md in Sources */ = {isa = PBXBuildFile; fileRef = 89F9DCFB1E5A9C7000493511 /* READ.md */; };
 		89F9DCFE1E5A9D0800493511 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9DCFD1E5A9D0800493511 /* DetailViewController.swift */; };
 		89F9DD011E5A9D3400493511 /* FlickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9DD001E5A9D3400493511 /* FlickCell.swift */; };
 		C6AF22D4432357C7BFF809FF /* Pods_Flick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF93A5D67C465321193D68E /* Pods_Flick.framework */; };
@@ -20,13 +19,12 @@
 
 /* Begin PBXFileReference section */
 		89B2C2111E5AA20C0026376A /* FlickViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickViewController.swift; sourceTree = "<group>"; };
+		89B2C2171E5AAE9A0026376A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		89F9DCE51E5A9A2700493511 /* Flick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89F9DCE81E5A9A2700493511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		89F9DCED1E5A9A2700493511 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89F9DCEF1E5A9A2700493511 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89F9DCF21E5A9A2700493511 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89F9DCF41E5A9A2700493511 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89F9DCFB1E5A9C7000493511 /* READ.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = READ.md; sourceTree = "<group>"; };
 		89F9DCFD1E5A9D0800493511 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		89F9DD001E5A9D3400493511 /* FlickCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickCell.swift; sourceTree = "<group>"; };
 		8CF93A5D67C465321193D68E /* Pods_Flick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,11 +68,10 @@
 				89F9DCFF1E5A9D1D00493511 /* Views */,
 				89F9DCFA1E5A9BA200493511 /* View Controllers */,
 				89F9DCE81E5A9A2700493511 /* AppDelegate.swift */,
-				89F9DCEC1E5A9A2700493511 /* Main.storyboard */,
 				89F9DCEF1E5A9A2700493511 /* Assets.xcassets */,
+				89B2C2171E5AAE9A0026376A /* Main.storyboard */,
 				89F9DCF11E5A9A2700493511 /* LaunchScreen.storyboard */,
 				89F9DCF41E5A9A2700493511 /* Info.plist */,
-				89F9DCFB1E5A9C7000493511 /* READ.md */,
 			);
 			path = Flick;
 			sourceTree = "<group>";
@@ -175,9 +172,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89B2C2181E5AAE9A0026376A /* Main.storyboard in Resources */,
 				89F9DCF31E5A9A2700493511 /* LaunchScreen.storyboard in Resources */,
 				89F9DCF01E5A9A2700493511 /* Assets.xcassets in Resources */,
-				89F9DCEE1E5A9A2700493511 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +234,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				89F9DD011E5A9D3400493511 /* FlickCell.swift in Sources */,
-				89F9DCFC1E5A9C7000493511 /* READ.md in Sources */,
 				89F9DCE91E5A9A2700493511 /* AppDelegate.swift in Sources */,
 				89B2C2121E5AA20C0026376A /* FlickViewController.swift in Sources */,
 				89F9DCFE1E5A9D0800493511 /* DetailViewController.swift in Sources */,
@@ -247,14 +243,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		89F9DCEC1E5A9A2700493511 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				89F9DCED1E5A9A2700493511 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		89F9DCF11E5A9A2700493511 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

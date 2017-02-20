@@ -10,25 +10,33 @@ import UIKit
 import AFNetworking
 import MBProgressHUD
 
-class FlickViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class FlickViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     var movies: [NSDictionary]?
     var endPoint: String!
-    
+    var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self;
         tableView.delegate = self;
         
+        // Search Bar setting
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
+        
+        
         // Initialize a UIRefreshControl
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
         // add refresh control to table view
         tableView.insertSubview(refreshControl, at: 0)
-        // Do any additional setup after loading the view.
         
+        
+        // Do any additional setup after loading the view.
         
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = URL(string: "https://api.themoviedb.org/3/movie/\(endPoint!)?api_key=\(apiKey)")!
@@ -79,9 +87,9 @@ class FlickViewController: UIViewController, UITableViewDataSource, UITableViewD
         if let posterPath = movie["poster_path"] as? String {
             
             let baseURL = "https://image.tmdb.org/t/p/w500"
-            let imageURL = NSURL(string: baseURL + posterPath)
+            let imageURL = URL(string: baseURL + posterPath)
             
-            cell.posterView.setImageWith(imageURL as! URL);
+            cell.posterView.setImageWith(imageURL!);
         }
         return cell;
     }
@@ -124,7 +132,6 @@ class FlickViewController: UIViewController, UITableViewDataSource, UITableViewD
         task.resume()
     }
     
-
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
